@@ -7,68 +7,120 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonList"
         android:layout_width="360dp"
         android:layout_height="160dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="TRAVEL\nLIST"
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
+        android:translationZ="1dp"
         android:typeface="normal"
         app:backgroundTint="@color/main_blue"
         app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNewTravel"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonNewTravel"
         android:layout_width="360dp"
         android:layout_height="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="NEW\nTRAVEL"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
+        android:translationZ="1dp"
         android:typeface="normal"
         app:backgroundTint="@color/main_blue"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHistory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonList" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonHistory"
         android:layout_width="360dp"
         android:layout_height="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="TRAVEL\nHISTORY"
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
+        android:translationZ="1dp"
         android:typeface="normal"
         app:backgroundTint="@color/main_blue"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCalendar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNewTravel" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/buttonCalendar"
         android:layout_width="360dp"
         android:layout_height="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="TRAVEL\nCALENDAR"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
+        android:translationZ="1dp"
         android:typeface="normal"
         app:backgroundTint="@color/main_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHistory"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="148dp"
+        android:layout_height="118dp"
+        android:layout_marginEnd="28dp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonList"
+        app:layout_constraintEnd_toEndOf="@+id/buttonList"
+        app:layout_constraintTop_toTopOf="@+id/buttonList"
+        app:layout_constraintVertical_bias="0.476"
+        app:srcCompat="@drawable/list_svgrepo_com_1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="40dp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNewTravel"
+        app:layout_constraintStart_toStartOf="@+id/buttonNewTravel"
+        app:layout_constraintTop_toTopOf="@+id/buttonNewTravel"
+        app:srcCompat="@drawable/map_add_svgrepo_com_1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="40dp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHistory"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHistory"
+        app:layout_constraintTop_toTopOf="@+id/buttonHistory"
+        app:srcCompat="@drawable/history_svgrepo_com_1" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="40dp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCalendar"
+        app:layout_constraintStart_toStartOf="@+id/buttonCalendar"
+        app:layout_constraintTop_toTopOf="@+id/buttonCalendar"
+        app:srcCompat="@drawable/calendar_svgrepo_com_1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
