@@ -1,7 +1,6 @@
 package com.example.travellio;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class TravelListActivity extends AppCompatActivity {
