@@ -2,19 +2,16 @@ package com.example.travellio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Base64;
 
 class Stay implements Serializable {
 
@@ -38,14 +35,23 @@ class Travel implements Serializable {
 
     public ArrayList<Stay> stays;
 
-    public final String flightTo, flightBack;
-    public final double flightPrice;
+    public String flightTo, flightBack, airport;
+    public double flightPrice;
 
 
-    Travel(String flightTo, String flightBack, double flightPrice) {
+    Travel() {
+        this.flightTo = null;
+        this.flightBack = null;
+        this.flightPrice = 0.0;
+        this.airport = null;
+        this.stays = new ArrayList<Stay>();
+    }
+
+    public void addFlight(String flightTo, String flightBack, double flightPrice, String airport) {
         this.flightTo = flightTo;
         this.flightBack = flightBack;
         this.flightPrice = flightPrice;
+        this.airport = airport;
     }
 
     public void addStay(String name, String from, String to, String country, String city, String street, int streetNumber, double price) {
@@ -56,64 +62,98 @@ class Travel implements Serializable {
 
 public class AddTravelActivity extends AppCompatActivity {
 
-    public String makeStringFromClass(Travel modeldata) {
-        try {
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
-            oos.writeObject(modeldata);
-            byte[] employeeAsBytes = baos.toByteArray();
-            ByteArrayInputStream bais = new ByteArrayInputStream(employeeAsBytes);
-            int[] arr = new int[employeeAsBytes.length];
-
-            for(int i = 0; i < employeeAsBytes.length; i++) {
-                arr[i] = (int)employeeAsBytes[i];
-            }
-
-            String strOfInts = Arrays.toString(arr).replaceAll("\\[|\\]|,", "");
-            strOfInts = strOfInts.trim();
-            return strOfInts;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public Travel makeClassFromString(String data) {
-        String[] words = data.split(" ");
-
-        byte[] arr2 = new byte[words.length];
-        for(int i = 0; i < words.length; i++) {
-            arr2[i] = Byte.parseByte(words[i]);
-        }
-        try {
-            ByteArrayInputStream baip = new ByteArrayInputStream(arr2);
-            ObjectInputStream ois = new ObjectInputStream(baip);
-            Travel dataobj = (Travel ) ois.readObject();
-            return dataobj ;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_travel);
 
-        Travel t = new Travel("21.2.2022", "25.2.2022", 443.2);
-
-        String dataString = makeStringFromClass(t);
-        Travel t1 = makeClassFromString(dataString);
-
-        System.out.println(t1.flightPrice);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        Button addTravel = findViewById(R.id.buttonAddTravel);
+        Button addStay = findViewById(R.id.buttonAddStay);
+        Button addFlight = findViewById(R.id.buttonAddFlight);
+
+        EditText airportInput = findViewById(R.id.textInputAirport);
+        EditText flightPriceInput = findViewById(R.id.textInputFlightPrice);
+        EditText flightFromInput = findViewById(R.id.textInputFlightFrom);
+        EditText flightToInput = findViewById(R.id.textInputFlightTo);
+
+        EditText stayNameInput = findViewById(R.id.textInputStayName);
+        EditText stayPriceInput = findViewById(R.id.textInputStayPrice);
+        EditText stayFromInput = findViewById(R.id.textInputStayFrom);
+        EditText stayToInput = findViewById(R.id.textInputStayTo);
+        EditText stayCountyInput = findViewById(R.id.textInputStayCountry);
+        EditText stayCityInput = findViewById(R.id.textInputStayCity);
+        EditText stayStreetInput = findViewById(R.id.textInputStayStreet);
+        EditText stayStreetNumberInput = findViewById(R.id.textInputStayStreetNumber);
+
+        Travel t = new Travel();
+
+        addFlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(airportInput.getText())
+                        && !TextUtils.isEmpty(flightFromInput.getText())
+                        && !TextUtils.isEmpty(flightToInput.getText())
+                        && !TextUtils.isEmpty(flightPriceInput.getText())) {
+                    t.addFlight(
+                            flightFromInput.getText().toString(),
+                            flightToInput.getText().toString(),
+                            Double.parseDouble(flightPriceInput.getText().toString()),
+                            airportInput.getText().toString()
+                    );
+                } else {
+                    Toast.makeText(getApplicationContext(), "Missing Fields", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        addStay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(stayNameInput.getText())
+                        && !TextUtils.isEmpty(stayPriceInput.getText())
+                        && !TextUtils.isEmpty(stayFromInput.getText())
+                        && !TextUtils.isEmpty(stayToInput.getText())
+                        && !TextUtils.isEmpty(stayCountyInput.getText())
+                        && !TextUtils.isEmpty(stayCityInput.getText())
+                        && !TextUtils.isEmpty(stayStreetInput.getText())
+                        && !TextUtils.isEmpty(stayStreetNumberInput.getText())
+                ) {
+                    t.addStay(
+                            stayNameInput.getText().toString(),
+                            stayFromInput.getText().toString(),
+                            stayToInput.getText().toString(),
+                            stayCountyInput.getText().toString(),
+                            stayCityInput.getText().toString(),
+                            stayStreetInput.getText().toString(),
+                            Integer.parseInt(stayStreetNumberInput.getText().toString()),
+                            Double.parseDouble(stayPriceInput.getText().toString())
+                    );
+                    System.out.println("dodano");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Missing Fields", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        addTravel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (t.airport == null) {
+                    Toast.makeText(getApplicationContext(), "Missing Flight", Toast.LENGTH_LONG).show();
+                }
+                else if (t.stays.size() == 0) {
+                    Toast.makeText(getApplicationContext(), "Missing Stay", Toast.LENGTH_LONG).show();
+                } else {
+                    String dataString = HelperFunctions.makeStringFromClass(t);
+                    System.out.println(HelperFunctions.makeClassFromString(dataString).flightPrice);
+                    Toast.makeText(getApplicationContext(), "Added Travel " + t.stays.get(0).country, Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(AddTravelActivity.this, MainActivity.class));
+                }
+            }
+        });
     }
 }

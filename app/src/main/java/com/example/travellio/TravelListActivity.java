@@ -13,5 +13,8 @@ public class TravelListActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+
+
     }
 }

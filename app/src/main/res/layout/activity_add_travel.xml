@@ -6,6 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".AddTravelActivity">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayTo"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Date To"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputStayFrom"
+        app:layout_constraintTop_toTopOf="@+id/textInputStayFrom"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/buttonAddFlight"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/main_blue"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Add Flight"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:iconTint="#0B0B0B"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputFlightFrom"
+        app:rippleColor="#131313" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayStreet"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Street"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddStay"
+        app:layout_constraintEnd_toStartOf="@+id/textInputStayStreetNumber"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputStayCountry"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Flight Details"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputAirport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputStayFrom"
+        app:layout_constraintEnd_toStartOf="@+id/textInputStayPrice"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayFrom"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Date From"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputStayCountry"
+        app:layout_constraintEnd_toStartOf="@+id/textInputStayTo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputStayName"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayCountry"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Country"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputStayStreet"
+        app:layout_constraintEnd_toStartOf="@+id/textInputStayCity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputStayFrom"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayCity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="City"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputStayCountry"
+        app:layout_constraintTop_toTopOf="@+id/textInputStayCountry"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputAirport"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Airport"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputFlightFrom"
+        app:layout_constraintEnd_toStartOf="@+id/textInputFlightPrice"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Stay Details"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputStayName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddFlight" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayStreetNumber"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Street Number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputStayStreet"
+        app:layout_constraintTop_toTopOf="@+id/textInputStayStreet"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputFlightPrice"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Price"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputAirport"
+        app:layout_constraintTop_toTopOf="@+id/textInputAirport"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputFlightTo"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Date To"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputFlightFrom"
+        app:layout_constraintTop_toTopOf="@+id/textInputFlightFrom"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputStayPrice"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Price"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputStayName"
+        app:layout_constraintTop_toTopOf="@+id/textInputStayName"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/buttonAddStay"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/main_blue"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Add Stay"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddTravel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputStayStreet" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputFlightFrom"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Date From"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddFlight"
+        app:layout_constraintEnd_toStartOf="@+id/textInputFlightTo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputAirport"
+        tools:ignore="TouchTargetSizeCheck" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="0dp"
@@ -14,7 +235,8 @@
         app:backgroundTint="@color/main_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar" />
 
     <TextView
         android:id="@+id/textView"
@@ -31,4 +253,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar" />
+
+    <Button
+        android:id="@+id/buttonAddTravel"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/main_blue"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Add Travel"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddStay" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
