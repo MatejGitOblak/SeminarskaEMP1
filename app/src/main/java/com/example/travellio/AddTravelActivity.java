@@ -2,7 +2,9 @@ package com.example.travellio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -61,6 +63,9 @@ class Travel implements Serializable {
 
 
 public class AddTravelActivity extends AppCompatActivity {
+
+    ArrayList<String> travel_name, travel_info;
+    DBHelper myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +156,11 @@ public class AddTravelActivity extends AppCompatActivity {
                     String dataString = HelperFunctions.makeStringFromClass(t);
                     System.out.println(HelperFunctions.makeClassFromString(dataString).flightPrice);
                     Toast.makeText(getApplicationContext(), "Added Travel " + t.stays.get(0).country, Toast.LENGTH_LONG).show();
+
+                    myDB = new DBHelper(AddTravelActivity.this);
+                    travel_name = new ArrayList<>();
+                    travel_info = new ArrayList<>();
+
                     startActivity(new Intent(AddTravelActivity.this, MainActivity.class));
                 }
             }
