@@ -166,7 +166,7 @@ public class AddTravelActivity extends AppCompatActivity {
                     storeDataInArrays();
 
 
-                    System.out.println("To je travel info: "+ travel_info);
+                    System.out.println("To je travel info: "+ HelperFunctions.makeClassFromString(travel_info.get(0)).flightPrice);
                     startActivity(new Intent(AddTravelActivity.this, MainActivity.class));
                 }
             }
