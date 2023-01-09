@@ -14,13 +14,15 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper
 {
     private Context context;
-    private static final String DATABASE_NAME = "Servers.db";
+    private static final String DATABASE_NAME = "Travels.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "travels";
     private static final String COLUMN_ID = "travel_id";
     private static final String COLUMN_NAME = "travel_name";
     private static final String COLUMN_INFO = "travel_info";
+    private static final String COLUMN_DATEFROM = "travel_datefrom";
+    private static final String COLUMN_DATETO = "travel_dateto";
 
     public DBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,7 +35,9 @@ public class DBHelper extends SQLiteOpenHelper
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NAME + " TEXT, " +
-                COLUMN_INFO + " TEXT);";
+                COLUMN_INFO + " TEXT, " +
+                COLUMN_DATEFROM + " TEXT, " +
+                COLUMN_DATETO + " TEXT);";
         db.execSQL(query);
     }
 
@@ -43,12 +47,14 @@ public class DBHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    void addTravel(String name, String info) {
+    void addTravel(String name, String info, String travel_datefrom, String travel_dateto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_INFO, info);
+        cv.put(COLUMN_DATEFROM, travel_datefrom);
+        cv.put(COLUMN_DATETO, travel_dateto);
         long result = db.insert(TABLE_NAME, null, cv);
         if(result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();

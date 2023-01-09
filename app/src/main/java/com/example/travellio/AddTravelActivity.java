@@ -63,8 +63,6 @@ class Travel implements Serializable {
 
 
 public class AddTravelActivity extends AppCompatActivity {
-
-    ArrayList<String> travel_id, travel_name, travel_info;
     DBHelper myDB;
 
     @Override
@@ -158,32 +156,11 @@ public class AddTravelActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Added Travel " + t.stays.get(0).country, Toast.LENGTH_LONG).show();
 
                     myDB = new DBHelper(AddTravelActivity.this);
-                    myDB.addTravel(t.stays.get(0).country, dataString);
-                    travel_id = new ArrayList<>();
-                    travel_name = new ArrayList<>();
-                    travel_info = new ArrayList<>();
+                    myDB.addTravel(t.stays.get(0).country, dataString, t.flightTo, t.flightBack);
 
-                    storeDataInArrays();
-
-
-                    System.out.println("To je travel info: "+ HelperFunctions.makeClassFromString(travel_info.get(0)).flightPrice);
                     startActivity(new Intent(AddTravelActivity.this, MainActivity.class));
                 }
             }
         });
-    }
-
-    void storeDataInArrays()
-    {
-        Cursor cursor = myDB.readAllData();
-        if (cursor.getCount() == 0) {
-        } else {
-            while (cursor.moveToNext()) {
-                travel_id.add(cursor.getString(0));
-                travel_name.add(cursor.getString(1));
-                travel_info.add(cursor.getString(2));
-            }
-
-        }
     }
 }
