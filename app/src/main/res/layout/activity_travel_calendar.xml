@@ -32,6 +32,7 @@
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar3"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar3" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -51,4 +52,17 @@
 
 =======
 >>>>>>> parent of bf5c2ca (n)
+=======
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="322dp"
+        android:layout_height="314dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar3"
+        app:layout_constraintVertical_bias="0.146" />
+>>>>>>> parent of 8f2286f (qewr)
 </androidx.constraintlayout.widget.ConstraintLayout>
