@@ -1,25 +1,19 @@
 package com.example.travellio;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Pair;
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.MaterialDatePicker;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
+import java.util.Calendar;
 
 public class TravelCalendarActivity extends AppCompatActivity {
 
-    CalendarView calendarView;
     DBHelper myDB;
     ArrayList<String> travel_id, travel_name, travel_info, travel_datefrom, travel_dateto;
 
@@ -32,7 +26,9 @@ public class TravelCalendarActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        CalendarView simpleCalendarView = findViewById(R.id.calendarView);
+        MaterialCalendarView materialCalendarView = findViewById(R.id.calendarView);
+        materialCalendarView.setSelectionMode (MaterialCalendarView.SELECTION_MODE_NONE);
+
         myDB = new DBHelper(TravelCalendarActivity.this);
         travel_id = new ArrayList<>();
         travel_name = new ArrayList<>();
@@ -42,25 +38,15 @@ public class TravelCalendarActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        MaterialDatePicker.Builder<Pair<Long, Long>> builderRange = MaterialDatePicker.Builder.dateRangePicker();
-        CalendarConstraints.Builder constraintsBuilderRange = new CalendarConstraints.Builder();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2023, 1, 15);
 
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.set(2023, 1, 20);
 
-        for (int i = 0; i < travel_datefrom.size(); i++) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            Date dateFrom = null;
-            Date dateTo = null;
-            try {
-                dateFrom = formatter.parse(travel_datefrom.get(i));
-                dateTo = formatter.parse(travel_dateto.get(i));
+        materialCalendarView.setDateSelected(calendar, true);
+        materialCalendarView.setDateSelected(calendar1, true);
 
-                long from = dateFrom.getTime();
-                long to = dateTo.getTime();
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     void storeDataInArrays()
