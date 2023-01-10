@@ -31,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar3"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar3" />
-<<<<<<< HEAD
 
     <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,6 +48,4 @@
 
     </RelativeLayout>
 
-=======
->>>>>>> parent of bf5c2ca (n)
 </androidx.constraintlayout.widget.ConstraintLayout>

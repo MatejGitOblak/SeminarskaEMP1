@@ -1,6 +1,5 @@
 package com.example.travellio;
 
-<<<<<<< HEAD
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -18,14 +17,6 @@ public class TravelCalendarActivity extends AppCompatActivity {
     DBHelper myDB;
     ArrayList<String> travel_id, travel_name, travel_info, travel_datefrom, travel_dateto;
 
-=======
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-public class TravelCalendarActivity extends AppCompatActivity {
-
->>>>>>> parent of bf5c2ca (n)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +25,6 @@ public class TravelCalendarActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-<<<<<<< HEAD
 
         MaterialCalendarView materialCalendarView = findViewById(R.id.calendarView);
         materialCalendarView.setSelectionMode (MaterialCalendarView.SELECTION_MODE_NONE);
@@ -76,7 +66,5 @@ public class TravelCalendarActivity extends AppCompatActivity {
                 travel_dateto.add(cursor.getString(4));
             }
         }
-=======
->>>>>>> parent of bf5c2ca (n)
     }
 }
