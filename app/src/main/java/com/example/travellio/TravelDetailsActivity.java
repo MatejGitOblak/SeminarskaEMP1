@@ -50,7 +50,6 @@ public class TravelDetailsActivity extends AppCompatActivity {
             flightPriceSt = getIntent().getStringExtra("flightPrice");
             flightToSt = getIntent().getStringExtra("flightTo");
             flightBackSt = getIntent().getStringExtra("flightBack");
-
             nameSt = getIntent().getStringExtra("name");
             stayPriceSt = getIntent().getStringExtra("stayPrice");
             stayToSt = getIntent().getStringExtra("stayTo");
@@ -63,11 +62,8 @@ public class TravelDetailsActivity extends AppCompatActivity {
             //SET INTENT DATA
             airport.setText(airportSt);
             flightPrice.setText(flightPriceSt);
-            //Tlele je narjen en switch-ero da zamenja ko sm narobe settau pa nism najdu pa popravu,
-            // ampak sou naprej da nardim cim vec
-            flightTo.setText(flightBackSt);
-            flightBack.setText(flightToSt);
-
+            flightTo.setText(flightToSt);
+            flightBack.setText(flightBackSt);
             name.setText(nameSt);
             stayPrice.setText(stayPriceSt);
             stayTo.setText(stayToSt);
