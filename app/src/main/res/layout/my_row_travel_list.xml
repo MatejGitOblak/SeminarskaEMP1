@@ -15,23 +15,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="74dp"
         android:background="@drawable/my_row_border"
+        android:backgroundTint="@color/main_blue"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/travel_dateto_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="To"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/travel_datefrom_txt"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/travel_datefrom_txt"
+            app:layout_constraintTop_toBottomOf="@+id/travel_datefrom_txt"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/travel_id_txt"
@@ -67,15 +70,16 @@
             android:id="@+id/travel_datefrom_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="From"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/travel_name_txt"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.127" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
