@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,8 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.Locale;
 
 class Stay implements Serializable {
 
@@ -156,7 +161,26 @@ public class AddTravelActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Added Travel " + t.stays.get(0).country, Toast.LENGTH_LONG).show();
 
                     myDB = new DBHelper(AddTravelActivity.this);
-                    myDB.addTravel(t.stays.get(0).country, dataString, t.flightTo, t.flightBack);
+
+                    LocalDate dateTo = null;
+                    LocalDate dateBack = null;
+                    LocalDate currDate = null;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy", Locale.ENGLISH);
+                        dateTo = LocalDate.parse(t.flightTo, formatter);
+                        dateBack = LocalDate.parse(t.flightBack, formatter);
+                        currDate = LocalDate.now();
+
+                        if(dateTo.compareTo(currDate) > 0)
+                        {
+                            myDB.addTravel(t.stays.get(0).country, dataString, String.valueOf(dateTo), String.valueOf(dateBack));
+                        }
+                        else
+                        {
+                            myDB.addHistoryTravel(t.stays.get(0).country, dataString, String.valueOf(dateTo), String.valueOf(dateBack));
+                        }
+                    }
 
                     startActivity(new Intent(AddTravelActivity.this, MainActivity.class));
                 }
