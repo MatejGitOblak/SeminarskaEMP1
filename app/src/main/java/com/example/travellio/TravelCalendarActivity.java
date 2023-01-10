@@ -1,15 +1,11 @@
 package com.example.travellio;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Pair;
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.MaterialDatePicker;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,7 +20,8 @@ public class TravelCalendarActivity extends AppCompatActivity {
     ArrayList<String> travel_id, travel_name, travel_info, travel_datefrom, travel_dateto;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_calendar);
 
@@ -42,10 +39,6 @@ public class TravelCalendarActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        MaterialDatePicker.Builder<Pair<Long, Long>> builderRange = MaterialDatePicker.Builder.dateRangePicker();
-        CalendarConstraints.Builder constraintsBuilderRange = new CalendarConstraints.Builder();
-
-
         for (int i = 0; i < travel_datefrom.size(); i++) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             Date dateFrom = null;
@@ -56,12 +49,19 @@ public class TravelCalendarActivity extends AppCompatActivity {
 
                 long from = dateFrom.getTime();
                 long to = dateTo.getTime();
+                long diff = to - from;
+                long datee = diff / (1000 * 60 * 60 * 24);
+
+                //Calculating number of days from two dates
+                simpleCalendarView.getLo
 
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
+
     }
+
 
     void storeDataInArrays()
     {
