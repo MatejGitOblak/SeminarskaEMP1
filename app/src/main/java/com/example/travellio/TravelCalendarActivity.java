@@ -1,19 +1,12 @@
 package com.example.travellio;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Pair;
-
->>>>>>> parent of 8f2286f (qewr)
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.MaterialDatePicker;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
@@ -55,7 +48,6 @@ public class TravelCalendarActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-<<<<<<< HEAD
         Calendar calendar = Calendar.getInstance();
         calendar.set(2023, 1, 15);
 
@@ -65,27 +57,6 @@ public class TravelCalendarActivity extends AppCompatActivity {
         materialCalendarView.setDateSelected(calendar, true);
         materialCalendarView.setDateSelected(calendar1, true);
 
-=======
-        MaterialDatePicker.Builder<Pair<Long, Long>> builderRange = MaterialDatePicker.Builder.dateRangePicker();
-        CalendarConstraints.Builder constraintsBuilderRange = new CalendarConstraints.Builder();
-
-
-        for (int i = 0; i < travel_datefrom.size(); i++) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            Date dateFrom = null;
-            Date dateTo = null;
-            try {
-                dateFrom = formatter.parse(travel_datefrom.get(i));
-                dateTo = formatter.parse(travel_dateto.get(i));
-
-                long from = dateFrom.getTime();
-                long to = dateTo.getTime();
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
->>>>>>> parent of 8f2286f (qewr)
     }
 
     void storeDataInArrays()
