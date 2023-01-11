@@ -68,8 +68,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
                         intent.putExtra("airport", String.valueOf(travel.airport));
                         intent.putExtra("flightPrice", String.valueOf(travel.flightPrice));
-                        intent.putExtra("flightTo", String.valueOf(travel.flightTo));
-                        intent.putExtra("flightBack", String.valueOf(travel.flightBack));
+                        intent.putExtra("flightTo", String.valueOf(travel.flightBack));
+                        intent.putExtra("flightBack", String.valueOf(travel.flightTo));
                         intent.putExtra("name", String.valueOf(travel.stays.get(0).name));
                         intent.putExtra("stayPrice", String.valueOf(travel.stays.get(0).price));
                         intent.putExtra("stayTo", String.valueOf(travel.stays.get(0).to));
